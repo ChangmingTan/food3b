@@ -82,7 +82,7 @@ $f3->route('GET|POST /order2', function ($f3) {
     echo $view->render('views/orderForm2.html');
 });
 
-//Breakfast route
+//Summary route
 $f3->route('GET /summary', function () {
     //echo '<h1>Thank you for your order!</h1>';
 
