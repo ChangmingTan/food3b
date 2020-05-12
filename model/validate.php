@@ -22,10 +22,10 @@ function validFood($food)
 }
 
 /* for testing purposes only
-echo validFood("french fries") ? "yes<br>" : "no<br>";
-echo validFood("pizza") ? "yes<br>" : "no<br>";
-echo validFood("7-layer dip") ? "yes<br>" : "no<br>";
-echo validFood("") ? "yes<br>" : "no<br>";
+echo validFood("french fries") ? "yes<br>" : "no<br>"; ----no
+echo validFood("pizza") ? "yes<br>" : "no<br>";        ----yes
+echo validFood("7-layer dip") ? "yes<br>" : "no<br>";  ----no
+echo validFood("") ? "yes<br>" : "no<br>";             ----no
 */
 
 
