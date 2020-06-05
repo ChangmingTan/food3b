@@ -22,7 +22,7 @@ class FoodOrder
     }
 
     /** Set the food
-     *  @param $food the food
+     * @param $food the food
      */
     public function setFood($food)
     {
@@ -62,7 +62,7 @@ class FoodOrder
     }
 
     /** Get the food
-     *  @return the food
+     * @return the food
      */
     public function getFood()
     {
@@ -71,7 +71,7 @@ class FoodOrder
 
     /** toString() returns a String representation
      *  of an order object
-     *  @return string
+     * @return string
      */
     public function toString()
     {
