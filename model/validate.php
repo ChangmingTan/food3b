@@ -8,11 +8,11 @@
  */
 class Validate
 {
-    /* Return a value indicating if food parameter is valid
-       Valid foods are not empty and do not contain anything except letters
-       @param String $food
-       @return boolean
-    */
+    /** Return a value indicating if food parameter is valid
+    Valid foods are not empty and do not contain anything except letters
+    @param String $food
+    @return boolean
+     */
     function validFood($food)
     {
         /*
@@ -27,15 +27,36 @@ class Validate
         return !empty($food) && ctype_alpha($food);
     }
 
-    /* Return a value indicating if meal is valid
-       Valid meals are breakfast, lunch and dinner
-       @param String $meal
-       @return boolean
-    */
+    /** Return a value indicating if meal is valid
+    Valid meals are breakfast, lunch and dinner
+    @param String $meal
+    @return boolean
+     */
     function validMeal($meal)
     {
         $meals = getMeals();
         return in_array($meal, $meals);
+    }
+
+    /** Return a value indicating if every value in
+    the $selectedCondiments array is in the list of
+    valid condiments.
+    @param String[] $selectedCondiments
+    @return boolean
+     */
+    function validCondiments($selectedCondiments)
+    {
+        $condiments = getCondiments();
+        //print_r($selectedCondiments);
+        //print_r($condiments);
+
+        //We need to check each condiment in our array
+        foreach ($selectedCondiments as $selected) {
+            if (!in_array($selected, $condiments)) {
+                return false;
+            }
+        }
+        return true;
     }
 }
 

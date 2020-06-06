@@ -84,11 +84,13 @@ class Controller
         //If the form has been submitted
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-            //Add the data to the object in the session array
-            $_SESSION['order']->setCondiments($_POST['conds']);
+            if($this->_validator->validCondiments($_POST['conds'])){
+                //Add the data to the object in the session array
+                $_SESSION['order']->setCondiments($_POST['conds']);
 
-            //Redirect to summary page
-            $this->_f3->reroute('summary');
+                //Redirect to summary page
+                $this->_f3->reroute('summary');
+            }
         }
 
         $this->_f3->set('conds', $conds);
