@@ -9,9 +9,9 @@
 class Validate
 {
     /** Return a value indicating if food parameter is valid
-    Valid foods are not empty and do not contain anything except letters
-    @param String $food
-    @return boolean
+     * Valid foods are not empty and do not contain anything except letters
+     * @param String $food
+     * @return boolean
      */
     function validFood($food)
     {
@@ -28,9 +28,9 @@ class Validate
     }
 
     /** Return a value indicating if meal is valid
-    Valid meals are breakfast, lunch and dinner
-    @param String $meal
-    @return boolean
+     * Valid meals are breakfast, lunch and dinner
+     * @param String $meal
+     * @return boolean
      */
     function validMeal($meal)
     {
@@ -39,10 +39,10 @@ class Validate
     }
 
     /** Return a value indicating if every value in
-    the $selectedCondiments array is in the list of
-    valid condiments.
-    @param String[] $selectedCondiments
-    @return boolean
+     * the $selectedCondiments array is in the list of
+     * valid condiments.
+     * @param String[] $selectedCondiments
+     * @return boolean
      */
     function validCondiments($selectedCondiments)
     {
@@ -50,7 +50,7 @@ class Validate
         //print_r($selectedCondiments);
         //print_r($condiments);
 
-        //We need to check each condiment in our array
+        //We need to check each condiment in the selectedCondiments array
         foreach ($selectedCondiments as $selected) {
             if (!in_array($selected, $condiments)) {
                 return false;
@@ -60,7 +60,7 @@ class Validate
     }
 }
 
-/*
+/* for testing purposes only
 echo validMeal('breakfast') ? "yes<br>" : "no<br>";
 echo validMeal('') ? "yes<br>" : "no<br>";
 echo validMeal('dessert') ? "yes<br>" : "no<br>";
