@@ -7,6 +7,7 @@
     condiments VARCHAR(100),
     date_time DATETIME DEFAULT NOW()
 )
+
 INSERT INTO food_order (food, meal, condiments)
 VALUES ('sandwich', 'breakfast', 'sriracha, mayonnaise');
  */
@@ -28,5 +29,36 @@ class Database
         } catch (PDOException $e) {
             echo $e->getMessage();
         }
+    }
+
+    function writeOrder($order)
+    {
+        //var_dump($order);
+
+        //Convert condiments array to a string
+        $conds = $order->getCondiments();
+        if (empty($conds)) {
+            $conds = "";
+        } else {
+            $conds = implode(", ", $conds);
+        }
+
+        //Write to database
+        //1. Define the query
+        $sql = "INSERT INTO food_order (food, meal, condiments)
+                VALUES (:food, :meal, :condiments)";
+
+        //2. Prepare the statement
+        $statement = $this->_dbh->prepare($sql);
+
+        //3. Bind the parameters
+        $statement->bindParam(':food', $order->getFood());
+        $statement->bindParam(':meal', $order->getMeal());
+        $statement->bindParam(':condiments', $conds);
+
+        //4. Execute the statement
+        $statement->execute();
+
+        //5. Process the results - SKIP
     }
 }
