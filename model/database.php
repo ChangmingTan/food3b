@@ -12,7 +12,7 @@ INSERT INTO food_order (food, meal, condiments)
 VALUES ('sandwich', 'breakfast', 'sriracha, mayonnaise');
  */
 
-//Require our config file
+//Require config file
 require '/home/ctangree/config.php';
 
 class Database
@@ -64,7 +64,7 @@ class Database
 
     function getOrders()
     {
-        //Read fro database
+        //Read from database
         //1. Define the query
         $sql = "SELECT * FROM food_order 
                 ORDER BY date_time DESC";
